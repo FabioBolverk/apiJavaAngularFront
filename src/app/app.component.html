@@ -1,0 +1,39 @@
+<!-- As a link -->
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Todo app</a>
+  </div>
+</nav>
+<div class="container mt-4">
+  <h3>Todos</h3>
+  <hr />
+  <form [formGroup]="form1"(ngSubmit)="submit()"> 
+  <div class="row">
+     <div class="col-md-6">
+        <input type="text" class="form-control" formControlName="descricao"/>
+     </div>
+      <div class="col-md-2">
+        <button  type="submit" class="btn btn-sm btn-primary">add</button>
+      </div>
+  </div>
+</form>
+<hr />
+<div class="row">
+  <div class="col-md-7">
+    <ul class="list-group">
+      <li *ngFor="let  todo of todos" 
+      class="list-group-item disabled" aria-disabled="true">
+      {{todo.descricao}}
+      <div class="btn-group">
+        <button class="btn btn-success">done</button>
+        <button class="btn btn-danger" (click)="deleteId(todo)">delete</button>
+        
+      </div>
+    </li>
+
+    </ul>
+
+  </div>
+
+</div>
+</div>
